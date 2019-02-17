@@ -18,7 +18,6 @@ const unsigned char minus[] PROGMEM=
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
   };
-  
 const unsigned char plus[] PROGMEM=
 {
   32,32,
@@ -34,7 +33,6 @@ const unsigned char plus[] PROGMEM=
   0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 };
-
 const unsigned char bande[] PROGMEM=
 {
  30,63,
@@ -59,7 +57,6 @@ const unsigned char bande[] PROGMEM=
  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x7f, 0x7f,  
 };
-
 //Definition of the Title Screen
 const unsigned char TitleScreen[] PROGMEM=
 {
@@ -77,8 +74,16 @@ const unsigned char GameOverdecor[] PROGMEM=
   0x10, 0xe0, 0x1, 0x2, 0x4, 0x5, 0x5, 0x4, 0x2, 0x1, 0x00, 0x00, 0x00,
   0x00,0x1, 0x2, 0x4, 0x4, 0x4, 0x4, 0x2, 0x1, 
 };
-
-
+//Thunder's definition
+const unsigned char thunder[] PROGMEM=
+{
+  20,20,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x60, 0x20, 0x90, 0xc8,
+  0xa8, 0x94, 0x8c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc2,
+  0xa3, 0x9a, 0x46, 0x20, 0x10, 0x8, 0x8, 0x4, 0x2, 0x1, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+};
 //Particulesprite's definition
 const unsigned char particulesprite[] PROGMEM=
 {
@@ -110,14 +115,13 @@ void reset() //Reset position fonction, level and count
 void setup() 
 {
   arduboy.begin();
-  arduboy.setFrameRate(60); //60 frames per second
+  arduboy.setFrameRate(30); //50 frames per second
   //Definition of particule2.y etc
   particule2.y=-35;
   particule3.y=-55;
   particule4.y=-75;
   particule5.y=-100;
 }
-
 void loop() 
 {
   if (!(arduboy.nextFrame()))
@@ -174,30 +178,54 @@ void loop()
         particule3.y=-60;
         particule4.y=-80;
         particule5.y=-95;
+        arduboy.clear();
+        arduboy.setCursor(0,0);
+        arduboy.print("Level 2 !");
+        Sprites::drawSelfMasked(50,12,thunder,0);
+        arduboy.display();
+        delay(5000);
         level++;
       } else if (count==1000)
       {
         particule1.y=-10;
-        particule1.y=-20;
-        particule1.y=-40;
-        particule1.y=-60;
-        particule1.y=-80;
+        particule2.y=-20;
+        particule3.y=-40;
+        particule4.y=-60;
+        particule5.y=-80;
+        arduboy.clear();
+        arduboy.setCursor(0,0);
+        arduboy.print("Level 3 !");
+        Sprites::drawSelfMasked(50,12,thunder,0);
+        arduboy.display();
+        delay(5000);
         level++;
       } else if (count==1500)
       {
         particule1.y=-10;
-        particule1.y=-20;
-        particule1.y=-30;
-        particule1.y=-40;
-        particule1.y=-50;
+        particule2.y=-20;
+        particule3.y=-30;
+        particule4.y=-40;
+        particule5.y=-50;
+        arduboy.clear();
+        arduboy.setCursor(0,0);
+        arduboy.print("Level 4 !");
+        Sprites::drawSelfMasked(50,12,thunder,0);
+        arduboy.display();
+        delay(5000);
         level++;
       } else if (count==2000)
       {
         particule1.y=-5;
-        particule1.y=-10;
-        particule1.y=-15;
-        particule1.y=-20;
-        particule1.y=-25;
+        particule2.y=-10;
+        particule3.y=-15;
+        particule4.y=-20;
+        particule5.y=-25;
+        arduboy.clear();
+        arduboy.setCursor(0,0);
+        arduboy.print("Last Level : 5 !");
+        Sprites::drawSelfMasked(50,12,thunder,0);
+        arduboy.display();
+        delay(5000);
         level++;
       }
       //If two particles are in the circle, then DIE ! (yes, i do love optimization)
