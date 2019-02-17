@@ -102,6 +102,7 @@ Particule particule2;
 Particule particule3;
 Particule particule4;
 Particule particule5;
+
 void reset() //Reset position fonction, level and count
 {
   particule1.y=0;
@@ -112,6 +113,7 @@ void reset() //Reset position fonction, level and count
   count=0;
   level=1;
 }
+
 void setup() 
 {
   arduboy.begin();
@@ -122,6 +124,7 @@ void setup()
   particule4.y=-75;
   particule5.y=-100;
 }
+
 void loop() 
 {
   if (!(arduboy.nextFrame()))
@@ -139,9 +142,7 @@ void loop()
         gamestatus=1;
       }
       break;
-      
-////////////////////////////////////////////////////////////////////////////////
-    
+
     case 1://Take care of the core gameplay
       arduboy.clear();
       //Adds 1 to counter and print the number on screen and print level
@@ -261,28 +262,30 @@ void loop()
       }
       
       arduboy.display();
-      break;    
-    
-///////////////////////////////////////////////////////////////////////////////////    
-    
+      break;
+
     case 2: //Take care of the Game Over Screen
       arduboy.clear();
       arduboy.setCursor(1,0);
       arduboy.print("Game over !");
       gameover.Draw(GameOverdecor);
       arduboy.setCursor(1,50);
+      arduboy.print("Level :");
+      arduboy.setCursor(50,50);
       arduboy.print(level);
       arduboy.setCursor(1,30);
       arduboy.print("Press the A button !");
       arduboy.display();
-      if(arduboy.pressed(A_BUTTON) and justpressed == 0){
+      if(arduboy.pressed(A_BUTTON) and justpressed == 0)
+      {
         justpressed=1;
         gamestatus=0;
       }
       break;
     }
   
-  if(arduboy.notPressed(A_BUTTON)) {
+  if(arduboy.notPressed(A_BUTTON))
+  {
     justpressed = 0;
   }
   arduboy.display();

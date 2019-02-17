@@ -13,15 +13,17 @@ class GameOver {
 };
 
 
-
+//Creator
 GameOver::GameOver(){
   
 }
 
+//Destructor
 GameOver::~GameOver(){
   delete this;
 }
 
+//~Draws~
 void GameOver::Draw(const unsigned char* sprite){
   Sprites::drawSelfMasked(89,40,sprite,0);
 }

@@ -40,7 +40,7 @@ void Particule::Draw(const unsigned char* sprite)
   Sprites::drawSelfMasked(64-4,y,sprite,status); //le status change le sprite (double sprite !)
 }
 
-
+//status is private
 int Particule::Getstatus()
 {
   return status;
@@ -52,7 +52,7 @@ int Particule::Changestatus()
   status = random(0,2);
 }
 
-
+//Verification fonction
 int Particule::Verif()
 {
   if(arduboy.pressed(LEFT_BUTTON) and y==32-5 and status==0){
