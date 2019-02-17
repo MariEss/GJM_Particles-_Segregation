@@ -117,7 +117,7 @@ void reset() //Reset position fonction, level and count
 void setup() 
 {
   arduboy.begin();
-  arduboy.setFrameRate(30); //50 frames per second
+  arduboy.setFrameRate(50); //50 frames per second
   //Definition of particule2.y etc
   particule2.y=-35;
   particule3.y=-55;
