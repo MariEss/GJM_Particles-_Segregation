@@ -8,6 +8,7 @@ class Particule {
   int status; //Electron or proton ?
   Arduboy2 arduboy;
   
+  
   public:
   Particule(); //Créateur
   ~Particule(); //Destructeur
@@ -16,7 +17,7 @@ class Particule {
   int Getstatus();
   int Changestatus();
   int Verif();
-  int coordonnee();
+  void coordonnee();
 };
 
 
@@ -57,11 +58,11 @@ int Particule::Verif()
   if(arduboy.pressed(LEFT_BUTTON) and y==32-5 and status==0){
     y=-100;
     Changestatus();
-    return 2;
+    return 0;
   } else if (arduboy.pressed(RIGHT_BUTTON) and y==32-5 and status==1){
     y=-100;
     Changestatus();
-    return 2;
+    return 0;
   } else if (y!=32-5){
     //Nothing happens
     return 0;
@@ -73,15 +74,12 @@ int Particule::Verif()
 }
 
 
-int Particule::coordonnee()
+void Particule::coordonnee()
 {
-  if (y!=32-5){
-        y++;
-        return y;
-      } else{
-        y=32-5;
-        return y;
-      }
+  if (y<32-5)
+  {
+    y++;
+  }
 }
 
 
