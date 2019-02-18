@@ -178,7 +178,7 @@ void loop()
         particule2.y=-40;
         particule3.y=-60;
         particule4.y=-80;
-        particule5.y=-95;
+        particule5.y=-100;
         arduboy.clear();
         arduboy.setCursor(0,0);
         arduboy.print("Level 2 !");
@@ -189,10 +189,10 @@ void loop()
       } else if (count==1000)
       {
         particule1.y=-10;
-        particule2.y=-20;
-        particule3.y=-40;
-        particule4.y=-60;
-        particule5.y=-80;
+        particule2.y=-30;
+        particule3.y=-50;
+        particule4.y=-70;
+        particule5.y=-90;
         arduboy.clear();
         arduboy.setCursor(0,0);
         arduboy.print("Level 3 !");
