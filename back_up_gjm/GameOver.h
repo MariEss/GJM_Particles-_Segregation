@@ -25,7 +25,7 @@ GameOver::~GameOver(){
 
 //~Draws~
 void GameOver::Draw(const unsigned char* sprite){
-  Sprites::drawSelfMasked(89,40,sprite,0);
+  Sprites::drawSelfMasked(89,15,sprite,0);
 }
 
 #endif
