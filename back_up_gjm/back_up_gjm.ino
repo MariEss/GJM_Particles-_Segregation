@@ -269,17 +269,28 @@ void loop()
       arduboy.setCursor(1,0);
       arduboy.print("Game over !");
       gameover.Draw(GameOverdecor);
-      arduboy.setCursor(1,50);
-      arduboy.print("Level :");
-      arduboy.setCursor(50,50);
-      arduboy.print(level);
+      arduboy.setCursor(1,20);
+      arduboy.print("Score :");
+      arduboy.setCursor(30,20);
+      arduboy.print(count);
       arduboy.setCursor(1,30);
-      arduboy.print("Press the A button !");
+      arduboy.print("Level :");
+      arduboy.setCursor(50,30);
+      arduboy.print(level);
+      arduboy.setCursor(1,40);
+      arduboy.print("A button to title screen");
+      arduboy.setCursor(1,50);
+      arduboy.print("B button to retry");
       arduboy.display();
       if(arduboy.pressed(A_BUTTON) and justpressed == 0)
       {
         justpressed=1;
         gamestatus=0;
+      }
+      if(arduboy.pressed(B_BUTTON) and justpressed==0)
+      {
+        justpressed=1;
+        gamestatus=1;
       }
       break;
     }
