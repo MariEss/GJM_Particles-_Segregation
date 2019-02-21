@@ -97,11 +97,7 @@ int gamestatus=0;
 int level=1;
 int count; //tells how many frames appeared
 GameOver gameover; //Creating gameover
-Particule particule1; //Creation of 5 particules
-Particule particule2;
-Particule particule3;
-Particule particule4;
-Particule particule5;
+Particule particule1, particule2, particule3, particule4, particule5; //Creation of 5 particules
 
 void reset() //Reset position fonction, level and count
 {
